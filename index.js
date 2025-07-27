@@ -91,12 +91,21 @@ async function updateTaskTracker() {
     const formattedStart = formatDate(eventData.start);
     const formattedEnd = formatDate(eventData.end);
 
+    // Grab link if available
+    let link = "";
+    if (eventData.url && typeof eventData.url === "string") {
+      link = eventData.url;
+    } else if (eventData.url && typeof eventData.url === "object" && eventData.url.val) {
+      link = eventData.url.val;
+    }
+
     let currentRow = [
       eventId,
       cleanedSummary,
       className,
       formattedStart,
       formattedEnd,
+      link,
     ];
 
     if (logging) {
@@ -192,3 +201,5 @@ async function updateTaskTracker() {
 
   console.log("[INFO] Update complete!");
 }
+
+// updateTaskTracker();
