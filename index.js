@@ -202,4 +202,4 @@ async function updateTaskTracker() {
   console.log("[INFO] Update complete!");
 }
 
-// updateTaskTracker();
+updateTaskTracker();
